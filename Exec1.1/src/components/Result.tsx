@@ -1,6 +1,8 @@
 import { useState } from "react";
-
-export function Result({ Result }) {
+interface ResultProps {
+  Result: [];
+}
+export function Result({ Result }: ResultProps) {
   return (
     <h2>
       {

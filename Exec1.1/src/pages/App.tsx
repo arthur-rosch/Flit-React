@@ -1,6 +1,7 @@
 import { ChangeEvent, useState, MouseEvent, useEffect } from 'react'
 import './App.css'
-import { Result } from "./components/Result"
+import { Result } from "../components/Result"
+import { Button } from "../components/Button"
 
 
 function App() {
@@ -40,10 +41,10 @@ function App() {
         <input type="text" onChange={(e: ChangeEvent<HTMLInputElement>) => setSegundoValor(e.target.value)} />
       </div>
       <div>
-        <button type="button" onClick={calcular}>+</button>
-        <button type="button" onClick={calcular}>-</button>
-        <button type="button" onClick={calcular}>x</button>
-        <button type="button" onClick={calcular}>/</button>
+        <Button operador='+' onClick={calcular} />
+        <Button operador='-' onClick={calcular} />
+        <Button operador='x' onClick={calcular} />
+        <Button operador='/' onClick={calcular} />
       </div>
       <Result Result={lista} />
     </main>
