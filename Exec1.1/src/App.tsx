@@ -1,10 +1,14 @@
-import { ChangeEvent, useState, MouseEvent } from 'react'
+import { ChangeEvent, useState, MouseEvent, useEffect } from 'react'
 import './App.css'
+import { Result } from "./components/Result"
+
 
 function App() {
   const [total, setTotal] = useState(0)
+  const [lista, setLista] = useState([])
   const [primeiroValor, setPrimeiroValor] = useState('')
   const [segundoValor, setSegundoValor] = useState('')
+
   function calcular(e: MouseEvent<HTMLButtonElement>) {
     const operador = e.currentTarget.textContent
     let resultado = 0
@@ -23,9 +27,12 @@ function App() {
         resultado = (Number(primeiroValor)) / (Number(segundoValor))
         break
     }
-
     setTotal(resultado)
   }
+  useEffect(() => {
+    setLista([...lista, total])
+  }, [total])
+
   return (
     <main>
       <div>
@@ -38,7 +45,7 @@ function App() {
         <button type="button" onClick={calcular}>x</button>
         <button type="button" onClick={calcular}>/</button>
       </div>
-      <h1>{total}</h1>
+      <Result Result={lista} />
     </main>
   )
 }
