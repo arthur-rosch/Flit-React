@@ -1,4 +1,4 @@
-import { ChangeEvent, useState, MouseEvent, useEffect } from 'react'
+import { ChangeEvent, useState, MouseEvent, useEffect, InvalidEvent } from 'react'
 import './App.css'
 import { Result } from "../components/Result"
 import { Button } from "../components/Button"
@@ -30,23 +30,29 @@ function App() {
     }
     setTotal(resultado)
   }
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
+    event.target.setCustomValidity("Esse campo e obrigatório");
+  }
+
   useEffect(() => {
     setLista([...lista, total])
   }, [total])
 
   return (
     <main>
-      <div>
-        <input type="text" onChange={(e: ChangeEvent<HTMLInputElement>) => setPrimeiroValor(e.target.value)} />
-        <input type="text" onChange={(e: ChangeEvent<HTMLInputElement>) => setSegundoValor(e.target.value)} />
-      </div>
-      <div>
-        <Button operador='+' onClick={calcular} />
-        <Button operador='-' onClick={calcular} />
-        <Button operador='x' onClick={calcular} />
-        <Button operador='/' onClick={calcular} />
-      </div>
-      <Result Result={lista} />
+      <form action="">
+        <div>
+          <textarea onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setPrimeiroValor(e.target.value)} onInvalid={handleNewCommentInvalid} required />
+          <textarea onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setSegundoValor(e.target.value)} onInvalid={handleNewCommentInvalid} required />
+        </div>
+        <div>
+          <Button operador='+' onClick={calcular} />
+          <Button operador='-' onClick={calcular} />
+          <Button operador='x' onClick={calcular} />
+          <Button operador='/' onClick={calcular} />
+        </div>
+        <Result Result={lista} />
+      </form>
     </main>
   )
 }
