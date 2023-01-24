@@ -1,0 +1,26 @@
+{
+  "product" : [
+    {
+      "id": 1,
+      "Name": "iPhone",
+      "UrlImgProduct": "https://m.media-amazon.com/images/I/41al5-lNvML.__AC_SY445_SX342_QL70_ML2_.jpg",
+      "RegularPrice": "14.000",
+      "DiscountPrice": "8.000"
+
+    },
+    {
+      "id": 2,
+      "Name": "iPhone",
+      "UrlImgProduct": "https://m.media-amazon.com/images/I/41al5-lNvML.__AC_SY445_SX342_QL70_ML2_.jpg",
+      "RegularPrice": "13.000",
+      "DiscountPrice": "7.000"
+    },
+    {
+      "id": 3,
+      "Name": "iPhone",
+      "UrlImgProduct": "https://m.media-amazon.com/images/I/41al5-lNvML.__AC_SY445_SX342_QL70_ML2_.jpg",
+      "RegularPrice": "12.000",
+      "DiscountPrice": "6.000"
+    }
+  ]
+}
